@@ -1,8 +1,19 @@
-spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/novamarket-user-db
-    username: root
-    password: root
-  jpa:
-    hibernate:
-      ddl-auto: update
+ output:
+    ansi:
+      enabled: always
+      
+server:
+  port: 0
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.value}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
